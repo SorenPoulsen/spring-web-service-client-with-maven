@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sorenpoulsen.com/enterprisemodel"
+	xmlns:tns="http://sorenpoulsen.com/enterprisemodel" version="1.0">
+
+	<include schemaLocation="CustomerID.xsd" />
+
+	<element name="Customer">
+		<complexType>
+			<sequence>
+				<element ref="tns:CustomerID" />
+				<element name="Name" type="token" />
+				<element name="Address" type="string" />
+				<element name="City" type="token" />
+				<element name="Country" type="token" />
+			</sequence>
+		</complexType>
+	</element>
+
+</schema>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<definitions name="CustomerService" 
+	targetNamespace="http://sorenpoulsen.com/customerservice"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://sorenpoulsen.com/customerservice"
+	xmlns:model="http://sorenpoulsen.com/enterprisemodel"
+	xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+	<types>
+		<xsd:schema targetNamespace="http://sorenpoulsen.com/enterprisemodel">
+			<xsd:include schemaLocation="GetCustomerRequest.xsd"/>
+			<xsd:include schemaLocation="GetCustomerResponse.xsd"/>
+		</xsd:schema>
+	</types>
+
+	<message name="GetCustomerRequestMessage">
+		<part name="GetCustomerRequestPart" element="model:GetCustomer" />
+	</message>
+	<message name="GetCustomerResponseMessage">
+		<part name="GetCustomerResponsePart" element="model:GetCustomerResponse" />
+	</message>
+
+	<portType name="CustomerServicePortType">
+		<operation name="GetCustomer">
+			<input name="GetCustomerInput" message="tns:GetCustomerRequestMessage" />
+			<output name="GetCustomerOutput" message="tns:GetCustomerResponseMessage" />
+		</operation>
+	</portType>
+
+	<binding name="CustomerServiceBinding" type="tns:CustomerServicePortType">
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+		<operation name="GetCustomer">
+			<input name="GetCustomerInput">
+				<soap12:body use="literal" />
+			</input>
+			<output name="GetCustomerOutput">
+				<soap12:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+
+	<service name="CustomerService">
+		<port name="CustomerServicePort" binding="tns:CustomerServiceBinding">
+			<soap12:address location="http://sorenpoulsen.com/customerservice" />
+		</port>
+	</service>
+
+
+</definitions>

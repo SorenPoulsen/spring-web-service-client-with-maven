@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="a1bfdc51-6b60-4b68-b17b-c4bad8c47458" activeEnvironment="Default" name="CustomerService" resourceRoot="${projectDir}" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="990e9917-c864-4935-b662-b8e676db3e19" wsaVersion="NONE" name="CustomerServiceBinding" type="wsdl" bindingName="{http://sorenpoulsen.com/customerservice}CustomerServiceBinding" soapVersion="1_2" anonymous="optional" definition="../../main/schemas/CustomerService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/home/stp/code/SpringWebServiceClient/src/main/schemas/CustomerService.wsdl"><con:part><con:url>file:/home/stp/code/SpringWebServiceClient/src/main/schemas/CustomerService.wsdl</con:url><con:content><![CDATA[<definitions name="CustomerService" targetNamespace="http://sorenpoulsen.com/customerservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://sorenpoulsen.com/customerservice" xmlns:model="http://sorenpoulsen.com/enterprisemodel" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema targetNamespace="http://sorenpoulsen.com/enterprisemodel">
+      <xsd:include schemaLocation="GetCustomerRequest.xsd"/>
+      <xsd:include schemaLocation="GetCustomerResponse.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="GetCustomerRequestMessage">
+    <part name="GetCustomerRequestPart" element="model:GetCustomer"/>
+  </message>
+  <message name="GetCustomerResponseMessage">
+    <part name="GetCustomerResponsePart" element="model:GetCustomerResponse"/>
+  </message>
+  <portType name="CustomerServicePortType">
+    <operation name="GetCustomer">
+      <input name="GetCustomerInput" message="tns:GetCustomerRequestMessage"/>
+      <output name="GetCustomerOutput" message="tns:GetCustomerResponseMessage"/>
+    </operation>
+  </portType>
+  <binding name="CustomerServiceBinding" type="tns:CustomerServicePortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="GetCustomer">
+      <input name="GetCustomerInput">
+        <soap12:body use="literal"/>
+      </input>
+      <output name="GetCustomerOutput">
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CustomerService">
+    <port name="CustomerServicePort" binding="tns:CustomerServiceBinding">
+      <soap12:address location="http://sorenpoulsen.com/customerservice"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:/home/stp/code/SpringWebServiceClient/src/main/schemas/GetCustomerRequest.xsd</con:url><con:content><![CDATA[<schema targetNamespace="http://sorenpoulsen.com/enterprisemodel" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://sorenpoulsen.com/enterprisemodel">
+  <include schemaLocation="CustomerID.xsd"/>
+  <element name="GetCustomer">
+    <complexType>
+      <sequence>
+        <element ref="tns:CustomerID"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/home/stp/code/SpringWebServiceClient/src/main/schemas/CustomerID.xsd</con:url><con:content>&lt;schema targetNamespace="http://sorenpoulsen.com/enterprisemodel" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://sorenpoulsen.com/enterprisemodel">
+  &lt;element name="CustomerID" type="token"/>
+&lt;/schema></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/home/stp/code/SpringWebServiceClient/src/main/schemas/GetCustomerResponse.xsd</con:url><con:content><![CDATA[<schema targetNamespace="http://sorenpoulsen.com/enterprisemodel" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://sorenpoulsen.com/enterprisemodel">
+  <include schemaLocation="Customer.xsd"/>
+  <element name="GetCustomerResponse">
+    <complexType>
+      <sequence>
+        <element ref="tns:Customer"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/home/stp/code/SpringWebServiceClient/src/main/schemas/Customer.xsd</con:url><con:content><![CDATA[<schema targetNamespace="http://sorenpoulsen.com/enterprisemodel" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://sorenpoulsen.com/enterprisemodel">
+  <include schemaLocation="CustomerID.xsd"/>
+  <element name="Customer">
+    <complexType>
+      <sequence>
+        <element ref="tns:CustomerID"/>
+        <element name="Name" type="token"/>
+        <element name="Address" type="string"/>
+        <element name="City" type="token"/>
+        <element name="Country" type="token"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://sorenpoulsen.com/customerservice</con:endpoint></con:endpoints><con:operation id="aef37f6e-247f-4207-a98c-96cc4d077c25" isOneWay="false" action="" name="GetCustomer" bindingOperationName="GetCustomer" type="Request-Response" outputName="GetCustomerOutput" inputName="GetCustomerInput" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5e890079-b504-4731-ba36-b7b06e893f23" name="GetCustomerRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8111/customerservice</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ent="http://sorenpoulsen.com/enterprisemodel">
+   <soap:Header/>
+   <soap:Body>
+      <ent:GetCustomer>
+         <ent:CustomerID>1</ent:CustomerID>
+      </ent:GetCustomer>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sorenpoulsen.com/customerservice/CustomerServicePortType/GetCustomerInput"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="eea29dde-b62e-4490-b12d-6ccd921b8ce4" port="8111" path="/customerservice" host="nova" name="CustomerServiceMock" bindToHostOnly="false" docroot=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="GetCustomer" id="cfb7c3d2-65a2-4a10-811a-209faa3f1fd8" interface="CustomerServiceBinding" operation="GetCustomer"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="GetCustomerResponse" id="29866aa4-78b7-4ded-bc35-4d2c78096427" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ent="http://sorenpoulsen.com/enterprisemodel">
+   <soap:Header/>
+   <soap:Body>
+      <ent:GetCustomerResponse>
+         <ent:Customer>
+            <ent:CustomerID>1</ent:CustomerID>
+            <Name>Orisa</Name>
+            <Address>Harald Blåtandsvej 3333</Address>
+            <City>Frederikssund</City>
+            <Country>DK</Country>
+         </ent:Customer>
+      </ent:GetCustomerResponse>
+   </soap:Body>
+</soap:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sorenpoulsen.com/customerservice/CustomerServicePortType/GetCustomerOutput"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

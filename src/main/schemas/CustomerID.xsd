@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sorenpoulsen.com/enterprisemodel" xmlns:tns="http://sorenpoulsen.com/enterprisemodel"
+	version="1.0">
+	<element name="CustomerID" type="token" />
+</schema>

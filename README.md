@@ -2,6 +2,10 @@
 
 A Java project that demonstrates how to create Spring web service client with Maven.
 
+## Website
+
+[https://sorenpoulsen.com/create-a-spring-web-service-client-with-maven](https://sorenpoulsen.com/create-a-spring-web-service-client-with-maven)
+
 ## Prerequisites
 
 Maven 3.5.0 installed and its /bin folder on PATH.  

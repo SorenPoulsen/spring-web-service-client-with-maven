@@ -7,7 +7,7 @@ Key features:
 * Contract-first
 * Spring-WS API 3.0.6 
 * Marshal SOAP body with JAXB. 
-* Uses XJC through jaxb2-maven-plugin.
+* XML schema compiled to Java with the jaxb2-maven-plugin.
 
 ## Website
 

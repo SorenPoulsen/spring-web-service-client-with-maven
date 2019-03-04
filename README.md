@@ -4,10 +4,11 @@ A Java project that demonstrates how to create Spring web service client with Ma
 
 Key features:
 
-* Contract-first
-* Spring-WS API 3.0.6 
+* Contract-first.
+* Spring-WS API 3.0.6.
 * Marshal SOAP body with JAXB. 
 * XML schema compiled to Java with the jaxb2-maven-plugin.
+* Integration test with SoapUI mock service.
 
 ## Website
 

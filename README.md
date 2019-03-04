@@ -1,6 +1,6 @@
 # Create a Spring web service client with Maven
 
-A Java project that demonstrates how to create Spring web service client with Maven.
+A Java project that demonstrates how to create a Spring web service client with Maven.
 
 Key features:
 
